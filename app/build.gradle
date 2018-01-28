@@ -1,11 +1,15 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion parent.ext.compileSdkVersion
+    buildToolsVersion parent.ext.buildToolsVersion
     defaultConfig {
         applicationId "org.cgsdream.demo"
-        minSdkVersion 19
-        targetSdkVersion 26
+        minSdkVersion parent.ext.minSdkVersion
+        targetSdkVersion parent.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -18,9 +22,26 @@ android {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        force "com.android.support:support-annotations:${supportVersion}"
+        force "com.android.support:recyclerview-v7:$supportVersion"
+        force "com.android.support:appcompat-v7:$supportVersion"
+        force "com.android.support:design:$supportVersion"
+        force "com.android.support:support-vector-drawable:$supportVersion"
+    }
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:26.0.0-beta1'
+    implementation "com.android.support:appcompat-v7:${supportVersion}"
+    implementation "com.qmuiteam:qmui:${qmuiVersion}"
+
+    implementation "com.jakewharton:butterknife:${butterknifeVersion}"
+    kapt "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

@@ -7,7 +7,10 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.2.10"
+        classpath "org.jetbrains.kotlin:kotlin-android-extensions:1.2.10"
         
 
         // NOTE: Do not place your application dependencies here; they belong
@@ -19,6 +22,17 @@ allprojects {
     repositories {
         google()
         jcenter()
+    }
+
+    ext {
+        butterknifeVersion = '8.5.1'
+        buildToolsVersion = "27.0.1"
+        minSdkVersion = 21
+        targetSdkVersion = 27
+        compileSdkVersion = 27
+        supportVersion = "27.0.2"
+        qmuiVersion = "1.0.7"
+        kotlin_version = "1.2.10"
     }
 }
 

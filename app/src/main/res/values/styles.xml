@@ -1,11 +1,17 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="QMUI.Compat.NoActionBar">
+        <item name="qmui_topbar_height">48dp</item>
+        <item name="QMUITopBarStyle">@style/AppTopBar</item>
+    </style>
+
+    <style name="AppTopBar" parent="QMUI.TopBar">
+        <item name="qmui_topbar_bg_color">?attr/qmui_config_color_blue</item>
+        <item name="qmui_topbar_image_btn_height">48dp</item>
+        <item name="qmui_topbar_title_color">@color/qmui_config_color_white</item>
+        <item name="qmui_topbar_subtitle_color">@color/qmui_config_color_white</item>
+        <item name="qmui_topbar_text_btn_color_state_list">@color/s_topbar_btn_color</item>
     </style>
 
 </resources>
